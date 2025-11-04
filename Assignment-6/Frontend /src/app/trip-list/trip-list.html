@@ -1,0 +1,45 @@
+
+<button class="popup-button" (click)="openNewTripForm()">Add Trips</button>
+
+<h3>Trips</h3>
+<table>
+    <thead>
+        <tr>
+             <th>ID</th>
+             <th>Driver ID</th>
+             <th>Vehicle ID</th>
+             <th>Source</th>
+             <th>Destination</th>
+             <th>Status</th>
+             <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let trip of trips">
+            <td>{{trip.tripId}}</td>
+            <td>{{trip.driverId}}</td>
+            <td>{{trip.vehicleId}}</td>
+            <td>{{trip.source}}</td>
+            <td>{{trip.destination}}</td>
+            <td>{{trip.status}}</td>
+            <td>
+                <button (click)="openEditForm(trip)">Edit</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div *ngIf="showForm" class="popup-form">
+  <app-trip-form
+    [trip]="selectedTrip"
+    [isNew]="isNewTrip"
+    [allDrivers]="drivers"
+    [allVehicles]="vehicles"
+    [allTrips]="trips"
+    (saved)="onSaved()"
+    (deleted)="onDeleted($event)"
+    (cancel)="closeForm()"
+  ></app-trip-form>
+</div>
+
+<p>{{message}}</p>

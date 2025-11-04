@@ -1,0 +1,68 @@
+h3 {
+  text-align: center;
+  color: #303f9f;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+label {
+  font-family: 'Poppins', sans-serif;
+  color: #424242;
+  font-weight: 500;
+}
+
+input, select {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #c5cae9;
+  border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+input:focus, select:focus {
+  border-color: #3f51b5;
+}
+
+button {
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button[type="submit"] {
+  background: linear-gradient(90deg, #5c6bc0, #3f51b5);
+  color: white;
+}
+
+button[type="submit"]:hover {
+  background: linear-gradient(90deg, #3949ab, #283593);
+}
+
+button[type="button"] {
+  background: #e0e0e0;
+  color: #424242;
+}
+
+button[type="button"]:hover {
+  background: #cfd8dc;
+}
+
+p {
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  color: #2e7d32;
+}

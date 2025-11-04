@@ -1,0 +1,93 @@
+h3 {
+  text-align: left;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: #283593;
+  margin-bottom: 10px;
+}
+
+.popup-button {
+  background: linear-gradient(90deg, #5c6bc0, #3f51b5);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  float: right;
+  margin-bottom: 10px;
+}
+
+.popup-button:hover {
+  background: linear-gradient(90deg, #3949ab, #283593);
+  transform: scale(1.03);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+th {
+  background: #3f51b5;
+  color: white;
+  padding: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+td {
+  padding: 10px;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+tr:nth-child(even) {
+  background: #f3f4fd;
+}
+
+tr:hover {
+  background: #e8eaf6;
+}
+
+button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  background: #3949ab;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-family: 'Poppins', sans-serif;
+}
+
+button:hover {
+  background: #283593;
+}
+
+.popup-form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #ffffff;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  padding: 30px;
+  z-index: 100;
+  width: 400px;
+  max-width: 90%;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translate(-50%, -60%); }
+  to { opacity: 1; transform: translate(-50%, -50%); }
+}

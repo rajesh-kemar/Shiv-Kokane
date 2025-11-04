@@ -1,0 +1,42 @@
+<h3>{{ isNew ? 'Add New Trip' : 'Edit Trip' }}</h3>
+<form [formGroup]="tripForm" (ngSubmit)="onSubmit()">
+  <label>
+    Source:
+    <input formControlName="source" />
+  </label><br />
+
+  <label>
+    Destination:
+    <input formControlName="destination" />
+  </label><br />
+
+  <label>
+    Status:
+    <select formControlName="status">
+      <option>Scheduled</option>
+      <option>Ongoing</option>
+      <option>Completed</option>
+    </select>
+  </label><br />
+
+  <label>
+    Driver:
+    <select formControlName="driverId">
+      <option *ngFor="let d of availableDrivers" [value]="d.driverId">{{ d.driverName }}</option>
+    </select>
+  </label><br />
+
+  <label>
+    Vehicle:
+    <select formControlName="vehicleId">
+      <option *ngFor="let v of availableVehicles" [value]="v.vehicleId">{{ v.vehicleNumber }}</option>
+    </select>
+  </label><br />
+
+  <button type="submit" [disabled]="tripForm.invalid">
+    {{ isNew ? 'Add Trip' : 'Update Trip' }}
+  </button>
+  <button type="button" (click)="onCancel()">Cancel</button>
+  <button *ngIf="!isNew && trip?.status?.toLowerCase() !== 'completed'" type="button" (click)="onDelete()">Delete Trip</button>
+</form>
+<p>{{ message }}</p>

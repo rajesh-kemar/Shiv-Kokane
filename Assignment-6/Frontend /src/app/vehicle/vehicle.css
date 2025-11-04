@@ -1,0 +1,46 @@
+:host {
+  display: block;
+  background: #f9f9ff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 50, 0.05);
+  transition: transform 0.2s ease;
+}
+
+:host:hover {
+  transform: translateY(-3px);
+}
+
+h3 {
+  text-align: center;
+  color: #303f9f;
+  font-weight: 500;
+  margin-bottom: 10px;
+  font-family: 'Poppins', sans-serif;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Poppins', sans-serif;
+}
+
+th, td {
+  padding: 10px;
+  text-align: center;
+}
+
+th {
+  background: #3f51b5;
+  color: white;
+  font-weight: 600;
+}
+
+tr:nth-child(even) {
+  background: #f0f2ff;
+}
+
+tr:hover {
+  background: #e8eaf6;
+  transition: background 0.3s;
+}
