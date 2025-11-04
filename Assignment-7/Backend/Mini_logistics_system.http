@@ -1,0 +1,6 @@
+@Mini_logistics_system_HostAddress = http://localhost:5098
+
+GET {{Mini_logistics_system_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
