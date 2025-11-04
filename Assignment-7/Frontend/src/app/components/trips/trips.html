@@ -1,0 +1,82 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Trips Management</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="header-actions">
+      <button mat-raised-button color="primary" (click)="openAddDialog()">
+        <mat-icon>add</mat-icon>
+        Add Trip
+      </button>
+    </div>
+
+    <table mat-table [dataSource]="trips" class="mat-elevation-z8">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>Trip ID</th>
+        <td mat-cell *matCellDef="let trip">{{ trip.id }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="driverId">
+        <th mat-header-cell *matHeaderCellDef>Driver ID</th>
+        <td mat-cell *matCellDef="let trip">{{ trip.driverId }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="vehicleId">
+        <th mat-header-cell *matHeaderCellDef>Vehicle ID</th>
+        <td mat-cell *matCellDef="let trip">{{ trip.vehicleId }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="source">
+        <th mat-header-cell *matHeaderCellDef>Source</th>
+        <td mat-cell *matCellDef="let trip">{{ trip.source }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="destination">
+        <th mat-header-cell *matHeaderCellDef>Destination</th>
+        <td mat-cell *matCellDef="let trip">{{ trip.destination }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="startDate">
+        <th mat-header-cell *matHeaderCellDef>Start Date</th>
+        <td mat-cell *matCellDef="let trip">{{ formatDate(trip.startDate) }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="endDate">
+        <th mat-header-cell *matHeaderCellDef>End Date</th>
+        <td mat-cell *matCellDef="let trip">{{ formatDate(trip.endDate) }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef>Status</th>
+        <td mat-cell *matCellDef="let trip">
+          <mat-chip 
+            [color]="trip.status === 'Completed' ? 'accent' : trip.status === 'Ongoing' ? 'warn' : 'primary'" 
+            selected>
+            {{ trip.status }}
+          </mat-chip>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let trip">
+          <button mat-icon-button color="primary" (click)="openEditDialog(trip)" 
+                  [disabled]="trip.status === 'Completed'">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="accent" (click)="completeTrip(trip.id)" 
+                  [disabled]="trip.status === 'Completed'"
+                  title="Mark as Complete">
+            <mat-icon>check_circle</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="deleteTrip(trip.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </mat-card-content>
+</mat-card>

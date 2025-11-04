@@ -1,0 +1,51 @@
+<h2 mat-dialog-title>{{ isEdit ? 'Edit Trip' : 'Add Trip' }}</h2>
+<mat-dialog-content>
+  <form [formGroup]="tripForm">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Driver</mat-label>
+      <mat-select formControlName="driverId">
+        <mat-option *ngFor="let driver of availableDrivers" [value]="driver.driverId">
+          {{ driver.driverName }} (ID: {{ driver.driverId }})
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="tripForm.get('driverId')?.hasError('required')">
+        Driver is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Vehicle</mat-label>
+      <mat-select formControlName="vehicleId">
+        <mat-option *ngFor="let vehicle of availableVehicles" [value]="vehicle.vehicleId">
+          {{ vehicle.vehicleNumber }} - {{ vehicle.vehicleType }} (ID: {{ vehicle.vehicleId }})
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="tripForm.get('vehicleId')?.hasError('required')">
+        Vehicle is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Source</mat-label>
+      <input matInput formControlName="source" placeholder="Enter source location">
+      <mat-error *ngIf="tripForm.get('source')?.hasError('required')">
+        Source is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Destination</mat-label>
+      <input matInput formControlName="destination" placeholder="Enter destination">
+      <mat-error *ngIf="tripForm.get('destination')?.hasError('required')">
+        Destination is required
+      </mat-error>
+    </mat-form-field>
+
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="!tripForm.valid">
+    {{ isEdit ? 'Update' : 'Create' }}
+  </button>
+</mat-dialog-actions>

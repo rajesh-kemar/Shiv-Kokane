@@ -1,0 +1,23 @@
+mat-card {
+  margin: 20px;
+}
+
+.header-actions {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+table {
+  width: 100%;
+  margin-top: 20px;
+}
+
+mat-chip {
+  min-height: 24px;
+  font-size: 12px;
+}
+
+td mat-icon-button {
+  margin-right: 5px;
+}

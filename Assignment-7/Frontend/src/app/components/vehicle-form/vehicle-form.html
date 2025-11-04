@@ -1,0 +1,38 @@
+<h2 mat-dialog-title>{{ isEdit ? 'Edit Vehicle' : 'Add Vehicle' }}</h2>
+<mat-dialog-content>
+  <form [formGroup]="vehicleForm">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Vehicle Number</mat-label>
+      <input matInput formControlName="vehicleNumber" placeholder="Enter vehicle number">
+      <mat-error *ngIf="vehicleForm.get('vehicleNumber')?.hasError('required')">
+        Vehicle number is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Vehicle Type</mat-label>
+      <input matInput formControlName="vehicleType" placeholder="Enter vehicle type">
+      <mat-error *ngIf="vehicleForm.get('vehicleType')?.hasError('required')">
+        Vehicle type is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Vehicle Model</mat-label>
+      <input matInput formControlName="vehicleModel" placeholder="Enter vehicle model">
+      <mat-error *ngIf="vehicleForm.get('vehicleModel')?.hasError('required')">
+        Vehicle model is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-checkbox formControlName="isAvailable" class="full-width">
+      Available
+    </mat-checkbox>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="!vehicleForm.valid">
+    {{ isEdit ? 'Update' : 'Create' }}
+  </button>
+</mat-dialog-actions>

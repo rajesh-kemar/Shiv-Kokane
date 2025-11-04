@@ -1,0 +1,27 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button>
+    <mat-icon>local_shipping</mat-icon>
+  </button>
+  <span>{{ title }}</span>
+  <span class="spacer"></span>
+  <button mat-button routerLink="/dashboard" routerLinkActive="active-link">
+    <mat-icon>dashboard</mat-icon>
+    Dashboard
+  </button>
+  <button mat-button routerLink="/drivers" routerLinkActive="active-link">
+    <mat-icon>people</mat-icon>
+    Drivers
+  </button>
+  <button mat-button routerLink="/vehicles" routerLinkActive="active-link">
+    <mat-icon>directions_car</mat-icon>
+    Vehicles
+  </button>
+  <button mat-button routerLink="/trips" routerLinkActive="active-link">
+    <mat-icon>route</mat-icon>
+    Trips
+  </button>
+</mat-toolbar>
+
+<div class="content">
+  <router-outlet></router-outlet>
+</div>

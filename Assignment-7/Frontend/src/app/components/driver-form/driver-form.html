@@ -1,0 +1,38 @@
+<h2 mat-dialog-title>{{ isEdit ? 'Edit Driver' : 'Add Driver' }}</h2>
+<mat-dialog-content>
+    <form [formGroup]="driverForm">
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Driver Name</mat-label>
+            <input matInput formControlName="driverName" placeholder="Enter Driver Name">
+            <mat-error *ngIf="driverForm.get('driverName')?.hasError('required')">
+                Driver name is required
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>License Number</mat-label>
+            <input matInput formControlName="licenseNumber" placeholder="Enter license number">
+            <mat-error *ngIf="driverForm.get('licenseNumber')?.hasError('required')">
+                License number is required
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Year of Experience</mat-label>
+            <input matInput type="number" formControlName="yearOfExperience" placeholder="Enter Experience ">
+            <mat-error *ngIf="driverForm.get('yearofExperience')?.hasError('min')">
+                Experience must be 0 or greater
+            </mat-error>
+        </mat-form-field>
+
+        <mat-checkbox formControlName="isAvailable" class="full-width">
+            Available
+        </mat-checkbox>        
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-raised-button color="primary" (click)=" OnSubmit()" [disabled]="!driverForm.valid">
+    {{ isEdit ? 'Update' : 'Create' }}
+  </button>
+</mat-dialog-actions>
